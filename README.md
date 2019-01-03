@@ -1,14 +1,21 @@
-# Webpack + Typescript + Jest
-My personal starter for all kinds of TS projects.
-I either clone it directly and remove the `.git` folder or use it inside my local repo to create a new project
+# Twinkling Night Sky
 
+## Features
+
+Kelvin Color
+Pulse (via scale)
+Glow (via Opacity)
+Parallax (top scroll via css proeprty)
+
+## Scratchpad
++ Add Filters https://yoksel.github.io/svg-filters/#/
++ Heat Filter: http://bl.ocks.org/monfera/19845caf6aa383abddaa248a3f0d2ae0
+Chrome Bug
 ```
-git archive master | tar -x -C ~/my-new-project
+    <filter id="displacementFilter">
+      <feTurbulence type="turbulence" baseFrequency="0.01 .1"
+          numOctaves="2" result="turbulence" seed="53"/>
+      <feDisplacementMap in2="turbulence" in="SourceGraphic"
+          scale="50" />
+    </filter>
 ```
-
-+ Use yarn
-+ Entry point: src/main.ts
-+ Run Jest tests with `yarn test`
-+ Build with `yarn build`
-+ Deploy to your github page `yarn deploy`
-
