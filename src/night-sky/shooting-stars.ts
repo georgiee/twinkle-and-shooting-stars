@@ -132,6 +132,7 @@ class ShootingStar {
 type ShootStarsConfig = {root: SVGElement, starlist: ShootingStarData[], debug: boolean};
 
 export function shootingStars({root, starlist, debug = false}: ShootStarsConfig) {
+  console.log('☄Adding Shooting Stars 💫')
   const svgGroup = document.createElementNS("http://www.w3.org/2000/svg", 'g');
   root.appendChild(svgGroup);
 
