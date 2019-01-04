@@ -4,5 +4,7 @@ declare type TwinkleStarsConfig = {
     starlist: TwinkleStarData[];
     debug: boolean;
 };
-export declare function twinkleStars({ root, starlist, debug }: TwinkleStarsConfig): void;
+export declare function twinkleStars({ root, starlist, debug }: TwinkleStarsConfig): {
+    debug: (value: any) => void;
+};
 export {};

@@ -4,5 +4,7 @@ declare type ShootStarsConfig = {
     starlist: ShootingStarData[];
     debug: boolean;
 };
-export declare function shootingStars({ root, starlist, debug }: ShootStarsConfig): void;
+export declare function shootingStars({ root, starlist, debug }: ShootStarsConfig): {
+    debug: (value: any) => void;
+};
 export {};
