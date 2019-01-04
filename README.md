@@ -19,3 +19,7 @@ Chrome Bug
           scale="50" />
     </filter>
 ```
+
+also tested gaussian blur filter
+performance bad.
+

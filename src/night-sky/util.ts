@@ -64,15 +64,42 @@ export function kelvinToRGB (temp, out = null) {
 }
 
 export const debounce = function(fn, duration) {
-	let timeout = null
-	return (...args) => {
-		clearTimeout(timeout)
-		timeout = setTimeout(() => fn(...args), duration)
-	}
+  let timeout = null
+  return (...args) => {
+    clearTimeout(timeout)
+    timeout = setTimeout(() => fn(...args), duration)
+  }
 }
 
 
 export const getScrollTop = function() {
-  // Use scrollTop because it's faster than getBoundingClientRect()
   return (document.scrollingElement || document.documentElement).scrollTop
+}
+
+
+export function getStarTemperature() {
+  const probe = Math.random(); //for probability between star types
+  const randomRangeRounded = (max, min = 0) => ~~(Math.random() * (max - min) + min + 0.5)
+
+  // 20% of all cases is a blue star (this is not a science fact, just for here)
+  if (probe < 0.1) {
+    // create a blue star
+     const min = 10000;
+     const max = 40000;
+     const value = randomRangeRounded(max, min);
+    return kelvinToRGB(value);
+  // another 20% for red dwarfs (very red)
+  } else if (0.1 < probe && probe < 0.2 ) {
+     // red dwarf < 3500
+    const min = 0
+    const max = 3500
+    const value = randomRangeRounded(max, min);
+    return kelvinToRGB(value);
+  // usual ones 80%
+  } else {
+    const min = 3500
+    const max = 10000
+    const value = randomRangeRounded(max, min);
+    return kelvinToRGB(value);
+  }
 }

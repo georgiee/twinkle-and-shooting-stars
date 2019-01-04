@@ -1,12 +1,35 @@
-import { generateStarCoordinates, Coordinate } from './data';
+import { generateStarCoordinates, generateShootingStars, getRandomStars } from './data';
 import { twinkleStars } from './twinkle-stars';
-
-require('./night-sky.css');
+import { shootingStars } from './shooting-stars';
 
 const STARS = generateStarCoordinates();
-
+const SHOOTING_STARS = generateShootingStars();
+let debug = false;
 
 export const create = (svgElement) => {
   console.log('Create Night Sky 🌌');
-  twinkleStars(svgElement, STARS);
+
+  const twinkle = twinkleStars({
+    root: svgElement,
+    starlist: [...STARS, ...getRandomStars(100)],
+    debug: debug
+  });
+
+  const shooting = shootingStars({
+    root: svgElement,
+    starlist: SHOOTING_STARS,
+    debug: debug
+  });
+
+
+  const btnDebug = document.querySelector('.btn-debug');
+  if(btnDebug){
+    btnDebug.addEventListener('click', (event: KeyboardEvent) => {
+      debug = !debug;
+
+      twinkle.debug(debug);
+      shooting.debug(debug);
+    })
+  }
+
 }
