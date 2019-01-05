@@ -1,6 +1,12 @@
+import { getStarTemperature } from './util';
+
 export type TwinkleStarData = {
-  x: number, y: number, size: number
+  x: number,
+  y: number,
+  size: number,
+  color?: number | string
 }
+
 export type ShootingStarData = {
   radius: number,
   x: number,
@@ -17,15 +23,22 @@ export function getRandomStars(count): TwinkleStarData[] {
     width: 2000,
     height: 1000
   }
+
+
+
   const stars = Array.from(Array(count)).map(_ => {
+    const colorRGB = getStarTemperature();
+    const color = `rgb(${colorRGB[0]},${colorRGB[1]},${colorRGB[2]})`;
+
     return {
       x: padding + rectangle.x + Math.random() * (rectangle.width - padding * 2),
       y: padding + rectangle.y + Math.random() * (rectangle.height - padding * 2),
-      size: 1
+      size: 1,
+      color: color
     }
   });
 
-  return [];
+  return stars;
 }
 
 export function generateShootingStars(): ShootingStarData[] {
@@ -62,7 +75,8 @@ export function generateShootingStars(): ShootingStarData[] {
 
 export function generateStarCoordinates(): TwinkleStarData[] {
   const otherDefaults = {
-    size: 1.5
+    size: 1.5,
+    color: null
   }
 
   return [ {

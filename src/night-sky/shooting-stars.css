@@ -26,7 +26,7 @@
 .shooting-star.is-shooting .shooting-star__shape{
   visibility: visible;
   animation:
-    cometOrbitAnimation var(--shooting-duration, 5s) 1 var(--shooting-easing, linear)  forwards,
+    cometOrbitAnimation var(--shooting-duration, 5s) 1 var(--shooting-easing, linear) forwards,
     cometGlow var(--shooting-duration, 5s) 1 var(--shooting-easing, linear)  forwards;
 }
 

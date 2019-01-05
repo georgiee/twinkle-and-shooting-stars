@@ -1,5 +1,5 @@
 import { TwinkleStarData } from './data';
-import { kelvinToRGB, getScrollTop, getStarTemperature } from './util';
+import { getScrollTop, getStarTemperature } from './util';
 
 require('./twinkle-stars.css');
 class Star {
@@ -62,8 +62,14 @@ class Star {
     const brightness = 1;
     const duration = 3000 + Math.random() * 4000;
 
-    const colorRGB = getStarTemperature();
-    const color = `rgb(${colorRGB[0]},${colorRGB[1]},${colorRGB[2]})`;
+
+
+    let color = this._data.color;
+
+    if(color === null) {
+      let colorRGB = getStarTemperature();
+      color = `rgb(${colorRGB[0]},${colorRGB[1]},${colorRGB[2]})`;
+    }
 
     const parallaxDepth = 1 + index%5; //create 5 parallax layer
     const parallaxIntensity = 200; // maximum translation basically.
