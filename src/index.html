@@ -5,43 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Twinkling Night Sky</title>
-  <style>
-    html, body {
-      min-height: 100vh;
-    }
-
-    body {
-      margin: 0;
-      height: 400vh;
-    }
-
-    .night-sky {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      background-color: #333;
-      z-index: -1;
-    }
-
-    .btn-debug {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-    }
-
-  </style>
 </head>
 <body>
-  <svg id="nightSkySVG"  class='night-sky'
-    viewbox="0 0 2000 1000"
-    preserveaspectratio="xMinYMin slice"
-    height="100%"
-    width="100%">
-  </svg>
+  <!-- <svg id='nightsky' viewbox="0 0 960 700" width ="100%" preserveAspectRatio="xMidYMid slice"> -->
+    <svg id='nightsky' viewbox="0 0 960 700">
 
-  <button class="btn-debug" title="Toggle Debug View">🚧</button>
+      <g transform="translate(0, 0)" class="debug-grid">
+        <rect width="100%" height="100%"/>
+      </g>
+    </svg>
+
+  <button class='btn-debug' onclick="toggle()">🚧</button>
 </body>
 </html>

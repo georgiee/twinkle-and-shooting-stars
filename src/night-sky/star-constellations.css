@@ -1,0 +1,16 @@
+.constellation__path {
+  stroke-dasharray: var(--constellation-segment-length);
+  stroke-dashoffset: var(--constellation-segment-length);
+  animation: constellationPathAnimate var(--constellation-segment-duration, 2s) linear forwards;
+  animation-delay: var(--constellation-segment-delay, 0);
+}
+
+@keyframes constellationPathAnimate {
+  0% {
+    stroke-dashoffset: var(--constellation-segment-length);
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

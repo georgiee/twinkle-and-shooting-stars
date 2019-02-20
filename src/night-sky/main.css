@@ -1,0 +1,16 @@
+body {
+  background: #232A44;
+  margin: 0;
+  height: 100vh;
+}
+
+svg {
+
+}
+
+
+.debug-grid  rect{
+  stroke: yellow;
+  stroke-width: 1;
+  fill: none;
+}
