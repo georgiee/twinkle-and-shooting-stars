@@ -1,8 +1,15 @@
+.gemini .constellation-pathgroup,
+.hercules .constellation-pathgroup,
+.ursa-major .constellation-pathgroup,
+.orion .constellation-pathgroup {
+  filter: url('#glowing');
+}
+
 .constellation__path {
   stroke-dasharray: var(--constellation-segment-length);
   stroke-dashoffset: var(--constellation-segment-length);
   animation: constellationPathAnimate var(--constellation-segment-duration, 2s) linear forwards;
-  animation-delay: var(--constellation-segment-delay, 0);
+  animation-delay: calc(var(--constellation-segment-delay, 0) + 2s)
 }
 
 @keyframes constellationPathAnimate {

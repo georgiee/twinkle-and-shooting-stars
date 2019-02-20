@@ -32,12 +32,13 @@ const LINES = [
 ]
 
 export const ursaMajor = {
+  name: 'ursa-major',
   coordinates: COORDINATES,
   lines: LINES,
-  scale: 0.5,
+  scale: 0.3,
   position: {
-    x: 50, y: 100
+    x: 450, y: 50
   },
-  rotate: 0,
-  debug: true
+  rotate: 45,
+  debug: false
 }

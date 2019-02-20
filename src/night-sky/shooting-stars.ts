@@ -1,7 +1,7 @@
 import { createSVGElement } from './shared';
 require('./shooting-stars.css');
 
-const SIZE_SHOOTING_STAR = 5;
+const SIZE_SHOOTING_STAR = 1;
 const DEBUG = false;
 
 export function run(svgElement) {

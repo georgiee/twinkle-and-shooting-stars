@@ -1,7 +1,6 @@
 import { createSVGElement } from './shared';
 import { createStar } from './twinkling-sky';
-import { orion, hercules } from './constellations/constellations';
-import { ursaMajor } from './constellations/ursa-major';
+import { gemini, orion, hercules, ursaMajor } from './constellations/constellations';
 
 require('./star-constellations.css');
 
@@ -10,20 +9,27 @@ const DEBUG = false;
 export function run(svgElement) {
   console.log('run starConstellations');
 
-  // const constellationOrion = createConstellation(orion);
-  // svgElement.appendChild(constellationOrion);
+  const constellationOrion = createConstellation(orion);
+  svgElement.appendChild(constellationOrion);
 
-  // const constellationHercules = createConstellation(hercules);
-  // svgElement.appendChild(constellationHercules);
+  const constellationHercules = createConstellation(hercules);
+  svgElement.appendChild(constellationHercules);
 
   const constellationUrsaMajor = createConstellation(ursaMajor);
   svgElement.appendChild(constellationUrsaMajor);
+
+  const constellationGemini = createConstellation(gemini);
+  svgElement.appendChild(constellationGemini);
 }
 
-function createConstellation({coordinates, lines, scale, position, rotate, debug}) {
+function createConstellation({coordinates, lines, scale, position, rotate, debug, name} = null) {
   const group = createSVGElement('g');
   group.setAttribute('transform', `translate(${position.x}, ${position.y})  scale(${scale}) rotate(${rotate}) `);
-  group.setAttribute('class', 'star-constellations');
+  group.classList.add('star-constellations');
+
+  if(name) {
+    group.classList.add(name);
+  }
 
   const paths = createPaths(lines, coordinates);
   group.appendChild(paths);
@@ -51,6 +57,7 @@ function createStars(coordinates, debug) {
 }
 function createPaths(lines, coordinates) {
   const group = createSVGElement('g');
+  group.classList.add('constellation-pathgroup');
 
   let totalLength = 0;
 
@@ -59,7 +66,7 @@ function createPaths(lines, coordinates) {
     const pathPoints = lineIndices.map(coordinateIndex => coordinates[coordinateIndex]);
     const {path, length} = createConstellationPath(pathPoints);
     path.setAttribute('stroke', '#484B74');
-    path.setAttribute('stroke-width', '1');
+    path.setAttribute('stroke-width', '4');
 
     totalLength += length;
     return {path, length};

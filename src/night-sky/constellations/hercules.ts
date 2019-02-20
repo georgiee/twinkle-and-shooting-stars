@@ -36,11 +36,13 @@ const LINES = [
 ]
 
   export const hercules = {
+    name: 'hercules',
     coordinates: COORDINATES,
     lines: LINES,
     scale: 0.3,
     position: {
       x: 200, y: 100
     },
-    rotate: -25
+    rotate: -25,
+    debug: false
   }

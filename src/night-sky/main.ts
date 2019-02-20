@@ -5,7 +5,7 @@ import { run as starConstellations } from './star-constellations';
 require('./main.css');
 
 export function create(svg) {
-  // twinklingSky(svg);
-  // shootingStars(svg);
+  twinklingSky(svg);
+  shootingStars(svg);
   starConstellations(svg);
 }
